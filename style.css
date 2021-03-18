@@ -1,0 +1,13 @@
+body {
+    width: 250px;
+    margin: 0 auto;
+}
+.blue {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+}
