@@ -18,19 +18,12 @@ function createElement(value) {
 function createContainer() {
     const container = document.createElement("div");
 
-    const area1 = createElement(0);
-    const area2 = createElement(0);
-    const area3 = createElement(0);
-    const area4 = createElement(0);
-    const area5 = createElement(0);
+    for (i = 0; i < 5; i++ ){
+        const area = createElement(0);
+        container.appendChild(area)
+    };
 
     container.style = "display: flex"
-
-    container.appendChild(area1);
-    container.appendChild(area2);
-    container.appendChild(area3);
-    container.appendChild(area4);
-    container.appendChild(area5);
 
     container.addEventListener("click", function (event, value) {
         value = +event.target.lastChild.innerText;
@@ -47,7 +40,6 @@ document.body.appendChild(container);
 
 function createButton(text, buttonName) {
     const button = document.createElement("button");
-    // const class1 = className;
     button.type = "button";
     button.className = buttonName;
     button.innerText = text;
@@ -79,19 +71,13 @@ function createSecondElement(value) {
 function createSecondContainer() {
     const container = document.createElement("div");
 
-    const area1 = createSecondElement(0);
-    const area2 = createSecondElement(0);
-    const area3 = createSecondElement(0);
-    const area4 = createSecondElement(0);
-    const area5 = createSecondElement(0);
+    for (i = 0; i < 5; i++ ){
+        const area = createSecondElement(0);
+        container.appendChild(area)
+    };
 
     container.style = "display: flex"
 
-    container.appendChild(area1);
-    container.appendChild(area2);
-    container.appendChild(area3);
-    container.appendChild(area4);
-    container.appendChild(area5);
 
     container.addEventListener("click", function (event, value) {
         if (event.target.className === "plus") {
@@ -122,31 +108,16 @@ function createColorElement(value) {
 function createColorContainer() {
     const container = document.createElement("div");
 
-    const area1 = createColorElement("blue");
-    const area2 = createColorElement("blue");
-    const area3 = createColorElement("blue");
-    const area4 = createColorElement("blue");
-    const area5 = createColorElement("blue");
+    
+    for (i = 0; i < 5; i++ ){
+        const area = createColorElement("blue");
+        container.appendChild(area)
+    };
 
     container.style = "display: flex"
 
-    container.appendChild(area1);
-    container.appendChild(area2);
-    container.appendChild(area3);
-    container.appendChild(area4);
-    container.appendChild(area5);
-
-    
-
     container.addEventListener("click", function (event) {
-        event.target.className;
-        if (event.target.className === "blue") {
-            event.target.className = "yellow";
-        }else if (event.target.className === "yellow"){
-            event.target.className = "green";
-        }else if(event.target.className === "green"){
-            event.target.className = "blue";
-        };
+            event.target.className = event.target.className === "blue" ? "yellow" : "green";
     })
     return container
 };
