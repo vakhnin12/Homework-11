@@ -18,7 +18,7 @@ function createElement(value) {
 function createContainer() {
     const container = document.createElement("div");
 
-    for (i = 0; i < 5; i++ ){
+    for (i = 0; i < 5; i++) {
         const area = createElement(0);
         container.appendChild(area)
     };
@@ -71,7 +71,7 @@ function createSecondElement(value) {
 function createSecondContainer() {
     const container = document.createElement("div");
 
-    for (i = 0; i < 5; i++ ){
+    for (i = 0; i < 5; i++) {
         const area = createSecondElement(0);
         container.appendChild(area)
     };
@@ -95,30 +95,38 @@ const secondContainer = createSecondContainer();
 
 document.body.appendChild(secondContainer);
 
-function createColorElement(value) {
+function createColorElement() {
+    const colors = [
+        "blue",
+        "yellow",
+        "green"
+    ];
+
     const area = document.createElement("div");
     area.style.border = "1px solid black";
     area.style.width = "50px";
     area.style.height = "50px";
-    area.className = value
+    area.className = colors.shift();
+
+    area.addEventListener("click", function (event) {
+        colors.push(event.target.className);
+        event.target.className = colors.shift();
+    })
 
     return area
 };
 
+
 function createColorContainer() {
     const container = document.createElement("div");
 
-    
-    for (i = 0; i < 5; i++ ){
-        const area = createColorElement("blue");
+
+    for (i = 0; i < 5; i++) {
+        const area = createColorElement();
         container.appendChild(area)
     };
 
-    container.style = "display: flex"
-
-    container.addEventListener("click", function (event) {
-            event.target.className = event.target.className === "blue" ? "yellow" : "green";
-    })
+    container.style = "display: flex";
     return container
 };
 
